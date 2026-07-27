@@ -1,4 +1,5 @@
 import { House, History, ChartSpline } from "lucide-react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
     return (
@@ -10,9 +11,15 @@ const Navbar = () => {
                 </div>
                 {/* right side */}
                 <div className="flex items-centers gap-4">
-                    <button className="flex border bg-[#244d3f] px-2 py-2 text-white rounded-xl text-md"><House /> Home</button>
-                    <button className="flex border  px-2 py-2  rounded-xl text-md"><History /> Timeline</button>
-                    <button className="flex border  px-2 py-2  rounded-xl text-md"><ChartSpline /> Status</button>
+                    <NavLink to={'/'}>
+                        <button className="flex border bg-[#244d3f] px-2 py-2 text-white rounded-xl text-md"><House /> Home</button>
+                    </NavLink>
+                    <NavLink to={'/timeline'}>
+                        <button className="flex border  px-2 py-2  rounded-xl text-md"><History /> Timeline</button>
+                    </NavLink>
+                    <NavLink to={'status'}>
+                        <button className="flex border  px-2 py-2  rounded-xl text-md"><ChartSpline /> Status</button>
+                    </NavLink>
                 </div>
             </div>
         </div>

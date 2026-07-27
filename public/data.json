@@ -52,8 +52,7 @@
         "days_since_contact": 3,
         "status": "Overdue",
         "tags": [
-            "family",
-            "cousin"
+            "family"
         ],
         "bio": "Always shares great travel recommendations.",
         "goal": 7,
@@ -67,7 +66,6 @@
         "days_since_contact": 9,
         "status": "Overdue",
         "tags": [
-            "gaming",
             "school"
         ],
         "bio": "School friend and online gaming teammate.",
@@ -97,7 +95,6 @@
         "days_since_contact": 1,
         "status": "On-track",
         "tags": [
-            "neighbor",
             "football"
         ],
         "bio": "Neighbor who organizes weekend football matches.",
