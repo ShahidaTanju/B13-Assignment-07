@@ -14,7 +14,7 @@ const FriendsCard = () => {
     console.log(friends);
 
     return (
-        <div className="bg-gray-100 p-6 rounded-2xl">
+        <div className="bg-gray-100 p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {friends.map((friend) => (
                     <Link to={`friendDetails/${friend.id}`}>

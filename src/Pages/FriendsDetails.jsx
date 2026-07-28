@@ -1,6 +1,8 @@
 import { Archive, Clock3, Trash2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { TimelineContext } from "../Contexts/Context";
+import { toast } from "react-toastify";
 
 const FriendsDetails = () => {
 
@@ -17,9 +19,24 @@ const FriendsDetails = () => {
             })
     }, [id]);
 
+    const { timelineData, setTimelineData } = useContext(TimelineContext);
+
+    const handleAddData = (type, friendDetails) => {
+        const newData = {
+            ...friendDetails,
+            action: type,
+            timestamp: new Date().toISOString()
+        };
+
+        setTimelineData([...timelineData, newData]);
+        toast.sucess("Done");
+    };
+
+
     if (!friend) {
         return <h2 className="text-center mt-20">Loading...</h2>
-    }
+    };
+
 
 
     return (
@@ -143,32 +160,32 @@ const FriendsDetails = () => {
 
                         <div className="grid grid-cols-3 gap-6 text-center">
 
-                            <div>
+                            <button onClick={() => handleAddData("call", friend)} className="border flex flex-col items-center hover:bg-gray-100 transition rounded-xl p-4 ">
                                 <img
                                     src="/src/assets/call.png"
-                                    className="w-10 mx-auto"
+                                    className="w-8 mx-auto"
                                     alt="Call"
                                 />
-                                <p className="mt-4 font-medium">Call</p>
-                            </div>
+                                <p className="mt-2 font-medium">Call</p>
+                            </button>
 
-                            <div>
+                            <button onClick={() => handleAddData("text", friend)} className="border flex flex-col items-center hover:bg-gray-100 transition rounded-xl p-4 ">
                                 <img
                                     src="/src/assets/text.png"
-                                    className="w-10 mx-auto"
+                                    className="w-8 mx-auto"
                                     alt="Text"
                                 />
-                                <p className="mt-4 font-medium">Text</p>
-                            </div>
+                                <p className="mt-2 font-medium">Text</p>
+                            </button>
 
-                            <div>
+                            <button onClick={() => handleAddData("video", friend)} className="border flex flex-col items-center hover:bg-gray-100 transition rounded-xl p-4 ">
                                 <img
                                     src="/src/assets/video.png"
-                                    className="w-10 mx-auto"
+                                    className="w-8 mx-auto"
                                     alt="Video"
                                 />
-                                <p className="mt-4 font-medium">Video</p>
-                            </div>
+                                <p className="mt-2 font-medium">Video</p>
+                            </button>
 
                         </div>
 
