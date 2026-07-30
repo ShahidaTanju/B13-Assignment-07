@@ -29,7 +29,7 @@ const FriendsDetails = () => {
         };
 
         setTimelineData([...timelineData, newData]);
-        toast.sucess("Done");
+        toast.success(`${type} with ${friendDetails.name}`);
     };
 
 
