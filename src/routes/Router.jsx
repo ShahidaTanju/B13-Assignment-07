@@ -2,7 +2,7 @@ import MainLayout from "../Components/layout/MainLayout"
 import { createBrowserRouter } from "react-router";
 import Home from "../Pages/Home";
 import TimeLine from "../Pages/TimeLine";
-import Status from "../Pages/Status";
+import Stats from "../Pages/Stats";
 import FriendsDetails from "../Pages/FriendsDetails";
 
 
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
                 element: <FriendsDetails></FriendsDetails>
             },
             {
-                path: "/status",
-                element: <Status></Status>
+                path: "/stats",
+                element: <Stats></Stats>
             }
         ],
     },

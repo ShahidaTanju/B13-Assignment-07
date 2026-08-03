@@ -22,8 +22,8 @@ const Navbar = () => {
                     <NavLink to={'/timeline'}>
                         <button className="flex border  px-2 py-2  rounded-xl text-md"><History /> Timeline({timelineData.length})</button>
                     </NavLink>
-                    <NavLink to={'status'}>
-                        <button className="flex border  px-2 py-2  rounded-xl text-md"><ChartSpline /> Status</button>
+                    <NavLink to={'stats'}>
+                        <button className="flex border  px-2 py-2  rounded-xl text-md"><ChartSpline /> Stats</button>
                     </NavLink>
                 </div>
             </div>
