@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TimelineContext } from "../Contexts/Context";
 import callIcon from "../assets/call.png";
 import videoIcon from "../assets/video.png";
@@ -22,21 +22,30 @@ const TimeLine = () => {
 
     const { timelineData } = useContext(TimelineContext);
 
+    const [filter, setFilter] = useState("All");
+
+    const filterData =
+        filter === "All"
+            ? timelineData
+            : timelineData.filter(item => item.action.toLowerCase() === filter.toLocaleLowerCase());
+
     return (
         <div className="max-w-2xl mx-auto p-6">
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-3xl font-bold">Timeline</h2>
-                <select className="border rounded-lg px-4 py-2 outline-none">
-                    <option>Filter Timeline</option>
-                    <option>Call</option>
-                    <option>Text</option>
-                    <option>Video</option>
+                <select className="border rounded-lg px-4 py-2 outline-none"
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}>
+                    <option value="All">Filter Timeline</option>
+                    <option value="Call">Call</option>
+                    <option value="Text">Text</option>
+                    <option value="Video">Video</option>
                 </select>
             </div>
 
             <div className="space-y-3">
-                {timelineData
+                {filterData
                     .slice()
                     .reverse()
                     .map((item, index) => (

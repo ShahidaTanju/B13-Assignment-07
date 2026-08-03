@@ -16,14 +16,29 @@ const Navbar = () => {
                 </div>
                 {/* right side */}
                 <div className="flex items-centers gap-4">
-                    <NavLink to={'/'}>
-                        <button className="flex border bg-[#244d3f] px-2 py-2 text-white rounded-xl text-md"><House /> Home</button>
+                    <NavLink to='/' end>
+                        {({ isActive }) => (
+                            <button className={`flex border  px-2 py-2  rounded-xl text-md ${isActive
+                                ? "bg-[#244d3f] text-white"
+                                : "bg-white border-[#244d3f] text-[#244d3f]"
+                                }`}><House /> Home</button>
+                        )}
                     </NavLink>
-                    <NavLink to={'/timeline'}>
-                        <button className="flex border  px-2 py-2  rounded-xl text-md"><History /> Timeline({timelineData.length})</button>
+                    <NavLink to='/timeline'>
+                        {({ isActive }) => (
+                            <button className={`flex border  px-2 py-2  rounded-xl text-md ${isActive
+                                ? "bg-[#244d3f] text-white"
+                                : "bg-white border-[#244d3f] text-[#244d3f]"
+                                }`}><History /> Timeline({timelineData.length})</button>
+                        )}
                     </NavLink>
-                    <NavLink to={'stats'}>
-                        <button className="flex border  px-2 py-2  rounded-xl text-md"><ChartSpline /> Stats</button>
+                    <NavLink to='stats'>
+                        {({ isActive }) => (
+                            <button className={`flex border  px-2 py-2  rounded-xl text-md ${isActive
+                                ? "bg-[#244d3f] text-white"
+                                : "bg-white border-[#244d3f] text-[#244d3f]"
+                                }`}><ChartSpline /> Stats</button>
+                        )}
                     </NavLink>
                 </div>
             </div>
